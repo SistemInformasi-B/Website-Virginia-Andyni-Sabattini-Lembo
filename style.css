@@ -1,0 +1,112 @@
+:root {
+  --bg-dark: #0d0d1a;
+  --console-grey: #c0c0c0;
+  --screen-lcd: #9bbc0f; 
+  --lcd-dark: #1a361a; /* Dipergelap agar teks lebih terbaca */
+  --retro-red: #ff0040;
+  --retro-blue: #0078f8;
+  --valid-green: #00ff00;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--bg-dark);
+  font-family: 'IBM Plex Mono', monospace; /* Diganti agar teks biasa lebih jelas */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Retro Grid Effect */
+.retro-grid {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%; pointer-events: none; z-index: 10;
+}
+
+/* Student Cartridge */
+.student-cartridge {
+  width: 100%; max-width: 550px; background: #444; border: 4px solid #222;
+  border-radius: 10px 10px 0 0; margin-bottom: 30px; box-shadow: 0 10px 0 #111;
+  position: relative; z-index: 20;
+}
+.cartridge-header { background: #222; padding: 8px 15px; display: flex; align-items: center; justify-content: center; }
+.sc-dot { width: 10px; height: 10px; background: var(--retro-red); border-radius: 50%; box-shadow: 0 0 5px var(--retro-red); }
+.cartridge-body { padding: 20px; display: flex; gap: 20px; background: linear-gradient(#555, #333); align-items: center; }
+.pixel-avatar { font-size: 45px; background: #222; padding: 10px; border-radius: 5px; border: 2px solid #666; }
+.sc-label { font-size: 11px; color: #ccc; letter-spacing: 1px; font-weight: bold; }
+.sc-val { font-family: 'Press Start 2P'; font-size: 11px; color: var(--retro-blue); margin-bottom: 12px; margin-top: 4px; line-height: 1.4; }
+.sc-id { font-family: 'IBM Plex Mono'; font-weight: bold; background: #000; color: #0f0; padding: 4px 10px; font-size: 15px; border-radius: 3px; }
+.sc-details { margin-top: 10px; font-size: 14px; display: flex; gap: 15px; color: #aaa; font-weight: bold; }
+.cartridge-footer { background: var(--retro-red); padding: 8px; text-align: center; font-size: 13px; font-weight: bold; letter-spacing: 1px; }
+
+/* Header */
+.game-header { text-align: center; margin-bottom: 30px; position: relative; z-index: 20; }
+.pixel-title { font-family: 'Press Start 2P'; font-size: 26px; line-height: 1.6; text-shadow: 4px 4px 0px var(--retro-blue); }
+.pixel-title span { color: var(--retro-red); text-shadow: 4px 4px 0px #500; }
+.eyebrow { font-size: 15px; font-weight: bold; color: var(--retro-blue); letter-spacing: 2px; margin-bottom: 5px; }
+
+/* Console Body */
+.console-body {
+  width: 100%; max-width: 550px; background: var(--console-grey);
+  border: 6px solid #888; border-radius: 20px; padding: 25px;
+  box-shadow: inset -5px -5px 0 #555, inset 5px 5px 0 #eee, 0 15px 30px rgba(0,0,0,0.5);
+  position: relative; z-index: 20;
+}
+
+.screen-border { background: #333; padding: 20px; border-radius: 10px; margin-bottom: 25px; }
+.label-pixel { font-family: 'Press Start 2P'; font-size: 9px; color: #ccc; display: block; margin-bottom: 12px; }
+
+.input-group { display: flex; gap: 12px; margin-bottom: 20px; }
+input { 
+  flex: 1; background: #000; border: 3px solid #555; padding: 12px 15px; 
+  color: #0f0; font-family: 'IBM Plex Mono'; font-weight: bold; font-size: 16px; outline: none; border-radius: 4px;
+}
+.btn-press { 
+  width: 55px; height: 55px; background: var(--retro-red); border: none;
+  border-radius: 50%; color: white; font-family: 'Press Start 2P'; font-size: 20px;
+  box-shadow: 0 5px 0 #800; cursor: pointer; transition: 0.1s;
+}
+.btn-press:active { transform: translateY(4px); box-shadow: 0 1px 0 #800; }
+
+/* LCD Screen */
+.lcd-screen { 
+  background: var(--screen-lcd); color: var(--lcd-dark);
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 120px;
+  border-radius: 5px; padding: 15px; border: 4px solid #222;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+.lcd-label { font-size: 13px; font-weight: bold; border-bottom: 2px solid var(--lcd-dark); margin-bottom: 8px; padding-bottom: 4px; }
+.lcd-echo { font-size: 20px; font-weight: bold; word-break: break-all; margin-top: 10px; }
+.lcd-right { border-left: 2px solid var(--lcd-dark); padding-left: 15px; display: flex; flex-direction: column; justify-content: center; }
+
+.verdict-display { font-family: 'Press Start 2P'; font-size: 18px; margin: 12px 0; display: flex; align-items: center; gap: 10px; }
+.status-badge { font-size: 12px; font-weight: bold; background: var(--lcd-dark); color: var(--screen-lcd); padding: 3px 8px; display: inline-block; }
+.lcd-sub { font-weight: bold; font-size: 14px; }
+
+.coin-spin { display: inline-block; font-size: 24px; animation: spin 0.6s linear infinite; }
+@keyframes spin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+@keyframes flicker { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+.flicker { animation: flicker 0.1s infinite; }
+
+/* Examples Split Section */
+.examples-split { display: flex; gap: 20px; }
+.ex-col { flex: 1; background: #bbb; padding: 15px; border-radius: 8px; border: 3px solid #999; }
+.ex-title { font-family: 'Press Start 2P'; font-size: 10px; margin-bottom: 15px; text-shadow: 1px 1px 0px rgba(255,255,255,0.5); }
+.ex-title.v { color: #006600; } /* Hijau gelap untuk keterbacaan di background abu */
+.ex-title.x { color: #cc0000; } /* Merah gelap */
+
+.ex-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip-btn {
+  background: #eee; border: 2px solid #555; padding: 6px 10px;
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: bold;
+  cursor: pointer; box-shadow: 0 3px 0 #555; color: #222; border-radius: 4px; transition: 0.1s;
+}
+.chip-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #555; }
+.chip-btn.v:hover { background: #d4f5d4; border-color: #006600; }
+.chip-btn.x:hover { background: #f5d4d4; border-color: #cc0000; }

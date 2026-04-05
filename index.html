@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scientific Notation Scanner - Virginia Andyni Sabattini Lembo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="retro-grid"></div>
+
+  <div class="student-cartridge">
+    <div class="cartridge-header">
+      <div class="sc-dot"></div>
+    </div>
+    <div class="cartridge-body">
+      <div class="pixel-avatar">👾</div>
+      <div class="student-info">
+        <div class="sc-label">PLAYER NAME</div>
+        <div class="sc-val">Virginia Andyni S. L.</div>
+        <div class="sc-row">
+          <div class="sc-label">ID_NIM:</div>
+          <div class="sc-id">241011060060</div>
+        </div>
+        <div class="sc-details">
+          <span>SISTEM INFORMASI</span>
+          <span>SEM. 4</span>
+        </div>
+      </div>
+    </div>
+    <div class="cartridge-footer">TEORI BAHASA & AUTOMATA · UNSRAT</div>
+  </div>
+
+  <div class="game-header">
+    <div class="eyebrow">MATH LEVEL 01</div>
+    <h1 class="pixel-title">SCIENTIFIC<br><span>SCANNER</span></h1>
+  </div>
+
+  <div class="console-body">
+    <div class="screen-border">
+      <div class="input-section">
+        <span class="label-pixel">INSERT VALUE:</span>
+        <div class="input-group">
+          <input type="text" id="inp" placeholder="3.5e4 atau 7.51e-9..." autocomplete="off">
+          <button class="btn-press" onclick="run()">A</button>
+        </div>
+      </div>
+
+      <div class="lcd-screen">
+        <div class="lcd-left">
+          <div class="lcd-label">INPUT_LOG</div>
+          <div id="echo" class="lcd-echo">READY_</div>
+        </div>
+        <div id="rright" class="lcd-right">
+          <div id="schip" class="status-badge">WAITING</div>
+          <div id="vword" class="verdict-display">—</div>
+          <div id="vsub" class="lcd-sub">NO_DATA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dpad-section">
+      <div class="examples-split">
+        
+        <div class="ex-col">
+          <div class="ex-title v">✓ VALID</div>
+          <div class="ex-chips">
+            <button class="chip-btn v" onclick="tryEx('3e2')">3e2</button>
+            <button class="chip-btn v" onclick="tryEx('7.51e-9')">7.51e-9</button>
+            <button class="chip-btn v" onclick="tryEx('3.5e4')">3.5e4</button>
+            <button class="chip-btn v" onclick="tryEx('-5.3e4')">-5.3e4</button>
+            <button class="chip-btn v" onclick="tryEx('9.87e2')">9.87e2</button>
+          </div>
+        </div>
+
+        <div class="ex-col">
+          <div class="ex-title x">✗ TIDAK VALID</div>
+          <div class="ex-chips">
+            <button class="chip-btn x" onclick="tryEx('300')">300</button>
+            <button class="chip-btn x" onclick="tryEx('4321.768')">4321.768</button>
+            <button class="chip-btn x" onclick="tryEx('0.2')">0.2</button>
+            <button class="chip-btn x" onclick="tryEx('10')">10</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
